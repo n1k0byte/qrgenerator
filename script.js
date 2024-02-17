@@ -1,17 +1,15 @@
-// script.js
 function generateQR() {
-    var qrText = document.getElementById('qrText').value.trim();
-    
-    if (qrText !== '') {
-        var qrCodeDiv = document.getElementById('qrCode');
-        qrCodeDiv.innerHTML = '';
-        
-        var qr = new QRious({
-            element: qrCodeDiv,
-            value: qrText,
-            size: 250
+    var text = document.getElementById('text').value;
+    var qrDiv = document.getElementById('qrcode');
+    qrDiv.innerHTML = '';
+
+    if (text.trim() !== '') {
+        new QRCode(qrDiv, {
+            text: text,
+            width: 200,
+            height: 200
         });
     } else {
-        alert('Please enter text or URL to generate QR code.');
+        alert('Please enter some text or URL.');
     }
 }
